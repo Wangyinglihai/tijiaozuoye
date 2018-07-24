@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 Created on Wed Jul 18 10:14:57 2018
-
+练习题5：
+1.优化代码  用函数的方式修改作业4  输出每一天的天气（函数）
+2.打印温度折线图，使用函数优化（有返回值）
 @author: samsung
 """
 
@@ -11,38 +13,24 @@ data=r.urlopen(url).read().decode('utf-8','ignore')
 
 import json#将字符串转换为字典
 data=json.loads(data)
+def weather(a,b):
+    print('this day is'+str(a)+'天的天气情况')
+    print('情况：'+str(data['list'][b]['weather'][0]['main']))
+weather(2,1)
+weather(10,2)
+weather(18,3)
+weather(26,4)
+weather(34,5)
 
-print('day1')
-print('temp'+str(data['list'][2]['main']['temp']))
-print('description'+str(data['list'][2]['weather'][0]['description']))
-print('pressure'+str(data['list'][2]['main']['pressure']))
-print('temp_max'+str(data['list'][2]['main']['temp_max']))
-print('temp_min'+str(data['list'][2]['main']['temp_min']))
 
-print('day2')
-print('temp'+str(data['list'][10]['main']['temp']))
-print('description'+str(data['list'][10]['weather'][0]['description']))
-print('pressure'+str(data['list'][10]['main']['pressure']))
-print('temp_max'+str(data['list'][10]['main']['temp_max']))
-print('temp_min'+str(data['list'][10]['main']['temp_min']))
 
-print('day3')
-print('temp'+str(data['list'][18]['main']['temp']))
-print('description'+str(data['list'][18]['weather'][0]['description']))
-print('pressure'+str(data['list'][18]['main']['pressure']))
-print('temp_max'+str(data['list'][18]['main']['temp_max']))
-print('temp_min'+str(data['list'][18]['main']['temp_min']))
+def p(a):
+    data1=data['list'][a]['main']['temp']
+    num=str('-')*int(data1)
+    return num
+print('day1'+p(1))
+print('day2'+p(2))
+print('day3'+p(3))
+print('day4'+p(4))
+print('day5'+p(5))
 
-print('day4')
-print('temp'+str(data['list'][26]['main']['temp']))
-print('description'+str(data['list'][26]['weather'][0]['description']))
-print('pressure'+str(data['list'][26]['main']['pressure']))
-print('temp_max'+str(data['list'][26]['main']['temp_max']))
-print('temp_min'+str(data['list'][26]['main']['temp_min']))
-
-print('day5')
-print('temp'+str(data['list'][34]['main']['temp']))
-print('description'+str(data['list'][34]['weather'][0]['description']))
-print('pressure'+str(data['list'][34]['main']['pressure']))
-print('temp_max'+str(data['list'][34]['main']['temp_max']))
-print('temp_min'+str(data['list'][34]['main']['temp_min']))
